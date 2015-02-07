@@ -2,4 +2,7 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">MedNote_Droid</string>
+	<string name="name">Name</string>
+	<string name="description">Description</string>
+	<string name="dosageTiming">Dosage Timings</string>
 </resources>

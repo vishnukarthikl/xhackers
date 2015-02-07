@@ -60,8 +60,29 @@ namespace MedNote_Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050007
+			public const int add = 2131034119;
+			
+			// aapt resource value: 0x7f050004
+			public const int addTimeButton = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int captureLayout = 2131034117;
+			
+			// aapt resource value: 0x7f050001
+			public const int descriptionText = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int dosageLinearLayout = 2131034114;
+			
 			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			public const int nameText = 2131034112;
+			
+			// aapt resource value: 0x7f050006
+			public const int save = 2131034118;
+			
+			// aapt resource value: 0x7f050003
+			public const int textView2 = 2131034115;
 			
 			static Id()
 			{
@@ -95,8 +116,17 @@ namespace MedNote_Droid
 			// aapt resource value: 0x7f040001
 			public const int app_name = 2130968577;
 			
+			// aapt resource value: 0x7f040003
+			public const int description = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int dosageTiming = 2130968580;
+			
 			// aapt resource value: 0x7f040000
 			public const int hello = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int name = 2130968578;
 			
 			static String()
 			{

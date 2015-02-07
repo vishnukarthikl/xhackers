@@ -63,4 +63,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\MedNote_Lib\MedNote_Lib.csproj">
+      <Project>{5D33CD3C-8A4A-44C3-8FC2-F978CE10349C}</Project>
+      <Name>MedNote_Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
