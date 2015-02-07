@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedNote_Droid", "MedNote_Droid\MedNote_Droid.csproj", "{238F6173-F23A-4751-92B4-08CB41C7A462}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedNote_Lib", "MedNote_Lib\MedNote_Lib.csproj", "{5D33CD3C-8A4A-44C3-8FC2-F978CE10349C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{238F6173-F23A-4751-92B4-08CB41C7A462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238F6173-F23A-4751-92B4-08CB41C7A462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238F6173-F23A-4751-92B4-08CB41C7A462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238F6173-F23A-4751-92B4-08CB41C7A462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D33CD3C-8A4A-44C3-8FC2-F978CE10349C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D33CD3C-8A4A-44C3-8FC2-F978CE10349C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D33CD3C-8A4A-44C3-8FC2-F978CE10349C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D33CD3C-8A4A-44C3-8FC2-F978CE10349C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
