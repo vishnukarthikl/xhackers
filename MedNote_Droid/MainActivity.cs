@@ -1,18 +1,25 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Provider;
+using Android.Net;
+using System;
+using Android.Graphics;
+using Java.IO;
 
 namespace MedNote_Droid
 {
 	[Activity (Label = "MedNote_Droid", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		private static int dosageTimeStartId = 100;
+		File dir;
+		File file;
+		ImageView tabletImageView;
+		Bitmap bitmap;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -30,42 +37,50 @@ namespace MedNote_Droid
 				DialogFragment newFragment = new TimePickerFragment (this,dosageLayout);
 				newFragment.Show (this.FragmentManager, "timePicker");
 			};
+
+			var takepicButton = FindViewById<Button> (Resource.Id.takepic);
+			tabletImageView = FindViewById<ImageView> (Resource.Id.tabletImageView);
+
+			if (bitmap != null) {
+				tabletImageView.SetImageBitmap (bitmap);
+				bitmap = null;
+			}
+
+			takepicButton.Click += delegate {
+				Intent intent = new Intent(MediaStore.ActionImageCapture);
+				dir = new File (Android.OS.Environment.GetExternalStoragePublicDirectory (Android.OS.Environment.DirectoryPictures), "MedNote");
+				if (!dir.Exists())
+				{
+					dir.Mkdirs();
+				}
+				file = new File (dir, String.Format ("tablet_{0}.jpg", Guid.NewGuid ()));
+				intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
+				StartActivityForResult(intent, 0);
+			};
+
 		}
-			
-	}
 
-	public class TimePickerFragment : DialogFragment, TimePickerDialog.IOnTimeSetListener 
-	{
-		private Context context;
-		private int dosageId = 100;
-		private LinearLayout dosageTimeLayout;
 
-		public TimePickerFragment (Context context,LinearLayout dosageLayout)
+
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
-			this.dosageTimeLayout = new LinearLayout (context);
-			dosageLayout.AddView (dosageTimeLayout);
-			this.context = context;		
-		}
+			base.OnActivityResult(requestCode, resultCode, data);
 
-		override
-		public Dialog OnCreateDialog(Bundle savedInstanceState) {
-			// Use the current time as the default values for the picker
-			var currentTime = DateTime.Now;
-			int hour = currentTime.Hour;
-			int minute = currentTime.Minute;
+			// make it available in the gallery
+			Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+			Android.Net.Uri contentUri = Android.Net.Uri.FromFile(file);
+			mediaScanIntent.SetData(contentUri);
+			SendBroadcast(mediaScanIntent);
 
-			// Create a new instance of TimePickerDialog and return it
-			return new TimePickerDialog(Activity, this, hour, minute,true);
-		}
-
-		public void OnTimeSet(TimePicker view, int hourOfDay, int minute) {
-			var editText = new EditText (context);
-			editText.Id = dosageId++;
-			editText.Text = string.Format ("{0}:{1}", hourOfDay, minute);
-			dosageTimeLayout.AddView (editText);
+			// display in ImageView. We will resize the bitmap to fit the display
+			// Loading the full sized image will consume to much memory 
+			// and cause the application to crash.
+			int height = Resources.DisplayMetrics.HeightPixels;
+			int width =  tabletImageView.Width ;
+			bitmap = BitmapHelpers.LoadAndResizeBitmap(file.AbsolutePath,width, height);
+			tabletImageView.SetImageBitmap (bitmap);
 		}
 	}
-
 
 }
 

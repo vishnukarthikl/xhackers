@@ -75,8 +75,14 @@
             android:text="Take Picture"
             android:drawableLeft="@android:drawable/ic_menu_camera"
             android:layout_height="wrap_content"
-            android:id="@+id/save"
+            android:id="@+id/takepic"
             android:layout_marginRight="77.1dp" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="fill_parent"
+            android:layout_height="300.0dp"
+            android:id="@+id/tabletImageView"
+            android:adjustViewBounds="true" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -93,6 +99,6 @@
             android:text="Add Pill"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/add" />
+            android:id="@+id/addpill" />
     </LinearLayout>
 </LinearLayout>

@@ -60,11 +60,11 @@ namespace MedNote_Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050007
-			public const int add = 2131034119;
-			
 			// aapt resource value: 0x7f050004
 			public const int addTimeButton = 2131034116;
+			
+			// aapt resource value: 0x7f050009
+			public const int addpill = 2131034121;
 			
 			// aapt resource value: 0x7f050005
 			public const int captureLayout = 2131034117;
@@ -78,8 +78,14 @@ namespace MedNote_Droid
 			// aapt resource value: 0x7f050000
 			public const int nameText = 2131034112;
 			
+			// aapt resource value: 0x7f050008
+			public const int save = 2131034120;
+			
+			// aapt resource value: 0x7f050007
+			public const int tabletImageView = 2131034119;
+			
 			// aapt resource value: 0x7f050006
-			public const int save = 2131034118;
+			public const int takepic = 2131034118;
 			
 			// aapt resource value: 0x7f050003
 			public const int textView2 = 2131034115;
